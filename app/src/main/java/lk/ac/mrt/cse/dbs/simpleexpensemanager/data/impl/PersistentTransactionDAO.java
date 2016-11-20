@@ -45,16 +45,15 @@ public class PersistentTransactionDAO implements TransactionDAO {
         String sortOrder =
                 ItransactionSchema.COLUMN_ID + " ASC";
 
-//        Cursor cursor = db.query(
-//                ItransactionSchema.TRANSACTION_TABLE,                     // The table to query
-//                ItransactionSchema.TRANSACTION_COLUMNS,                   // The columns to return
-//                null,                                             // The columns for the WHERE clause
-//                null,                                             // The values for the WHERE clause
-//                null,                                             // don't group the rows
-//                null,                                             // don't filter by row groups
-//                sortOrder                                         // The sort order
-//        );
-        Cursor cursor = db.rawQuery("SELECT * FROM transactions",null);
+        Cursor cursor = db.query(
+                ItransactionSchema.TRANSACTION_TABLE,                     // The table to query
+                ItransactionSchema.TRANSACTION_COLUMNS,                   // The columns to return
+                null,                                             // The columns for the WHERE clause
+                null,                                             // The values for the WHERE clause
+                null,                                             // don't group the rows
+                null,                                             // don't filter by row groups
+                sortOrder                                         // The sort order
+        );
         if (cursor != null) {
             cursor.moveToFirst();
             while (!cursor.isAfterLast()) {
