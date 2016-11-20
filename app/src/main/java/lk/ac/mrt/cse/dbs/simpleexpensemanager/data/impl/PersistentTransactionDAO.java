@@ -81,7 +81,8 @@ public class PersistentTransactionDAO implements TransactionDAO {
                 null,                                             // The values for the WHERE clause
                 null,                                             // don't group the rows
                 null,                                             // don't filter by row groups
-                sortOrder                                         // The sort order
+                sortOrder,                                         // The sort order
+                String.valueOf(limit)
         );
         if (cursor != null) {
             int count = 0;
